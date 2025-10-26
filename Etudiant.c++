@@ -6,61 +6,71 @@ class Etudiant {
 private:
     string nom;
     string cin;
-    float note;
+    float note1;
+    float note2;
+    float note3;
 
 public:
-    void setNom(string n);
-    void setCin(string c);
-    void setNote(float n);
+    void setNom(string n) {
+        nom = n;
+    }
 
-    string getNom();
-    string getCin();
-    float getNote();
+    string getNom() {
+        return nom;
+    }
 
-    void afficher();
+    void setCin(string c) {
+        cin = c;
+    }
+
+    string getCin() {
+        return cin;
+    }
+
+    void setNote1(float n1) {
+        note1 = n1;
+    }
+
+    float getNote1() {
+        return note1;
+    }
+
+    void setNote2(float n2) {
+        note2 = n2;
+    }
+
+    float getNote2() {
+        return note2;
+    }
+
+    void setNote3(float n3) {
+        note3 = n3;
+    }
+
+    float getNote3() {
+        return note3;
+    }
+
+    float calculMoyenne() {
+        return (note1 + note2 + note3) / 3;
+    }
+
+    void afficher() {
+        cout << "Nom : " << nom << endl;
+        cout << "CIN : " << cin << endl;
+        cout << "Notes : " << note1 << " | " << note2 << " | " << note3 << endl;
+        cout << "Moyenne : " << calculMoyenne() << endl;
+    }
 };
-
-void Etudiant::setNom(string n) { nom = n; }
-void Etudiant::setCin(string c) { cin = c; }
-void Etudiant::setNote(float n) { note = n; }
-
-string Etudiant::getNom() { return nom; }
-string Etudiant::getCin() { return cin; }
-float Etudiant::getNote() { return note; }
-
-void Etudiant::afficher() {
-    cout << "Étudiant : " << nom << " (CIN: " << cin << ") - Note : " << note << endl;
-}
-
-class Filiere {
-private:
-    string nomFiliere;
-    Etudiant etudiant;
-
-public:
-    void setNomFiliere(string nf);
-    void setEtudiant(Etudiant e);
-    void afficher();
-};
-
-void Filiere::setNomFiliere(string nf) { nomFiliere = nf; }
-void Filiere::setEtudiant(Etudiant e) { etudiant = e; }
-
-void Filiere::afficher() {
-    cout << "Filière : " << nomFiliere << endl;
-    etudiant.afficher();
-}
 
 int main() {
     Etudiant e;
-    e.setNom("Yassine");
-    e.setCin("C78912");
-    e.setNote(15.5);
+    e.setNom("Lamia");
+    e.setCin("AB123456");
+    e.setNote1(14);
+    e.setNote2(16);
+    e.setNote3(18);
 
-    Filiere f;
-    f.setNomFiliere("Génie Informatique");
-    f.setEtudiant(e);
-
-    f.afficher();
+    e.afficher();
     return 0;
 }
